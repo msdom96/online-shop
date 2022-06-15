@@ -44,6 +44,6 @@ return db.execute('INSERT INTO products (title, price, imageUrl, description) VA
   }
 
   static findById(id) {
- 
+   return db.execute('SELECT * FROM products WHERE products.id = ?', [id]);
   }
 };
