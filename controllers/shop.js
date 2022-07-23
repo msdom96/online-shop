@@ -89,7 +89,7 @@ exports.postCart = (req, res, next) => {
         newQuantity = oldQuantity + 1;
         return product;
       }
-      return Product.findByPk(prodId);
+      return Product.findById(prodId);
     })
     .then(product => {
       return fetchedCart.addProduct(product, {
@@ -151,7 +151,7 @@ exports.postOrder = (req, res, next) => {
 
 exports.getOrders = (req, res, next) => {
   req.user
-    .getOrders({include: ['products']})
+    .getOrders({ include: ['products'] })
     .then(orders => {
       res.render('shop/orders', {
         path: '/orders',
