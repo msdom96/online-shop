@@ -3,17 +3,17 @@ const MongoClient = mongodb.MongoClient;
 
 let _db;
 
-const mongoConnect = (callback) => {
+const mongoConnect = callback => {
   MongoClient.connect('mongodb+srv://msdom:Joaquim17@cluster0.l6squme.mongodb.net/?retryWrites=true&w=majority')
-  .then( client => {
-    console.log('Connected!');
-    _db = client.db();
-  callback();
-})
-.catch(err => {
-  console.log(err);
-  throw err;
-});
+    .then(client => {
+      console.log('Connected!');
+      _db = client.db();
+      callback();
+    })
+    .catch(err => {
+      console.log(err);
+      throw err;
+    });
 };
 
 const getDb = () => {
