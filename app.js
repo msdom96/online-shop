@@ -2,7 +2,6 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
-
 const mongoose = require('mongoose');
 
 const errorController = require('./controllers/error');
@@ -47,9 +46,8 @@ mongoose.connect('mongodb+srv://msdom:Joaquim17@cluster0.l6squme.mongodb.net/sho
       user.save();
     }
   });
-
-
   app.listen(3000);
-}).catch(err => {
-  console.log(err);
-});
+})
+  .catch(err => {
+    console.log(err);
+  });
